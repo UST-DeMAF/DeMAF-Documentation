@@ -47,7 +47,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 
 
 ## HELP SECTION
-If you run during installation and first use into issues, maybe the following point may help you:
+If you encounter problems during installation and initial use, the following points may help you:
 
 1.	If you try to run docker pull && docker-compose command and you receive the following error:
     -   C:\Users\USER\deployment-config>docker-compose pull && docker-compose up -d time="2024-05-24T12:12:57+02:00" level=warning msg="C:\\Users\\USER\\deployment-config\\docker-compose.yml: `version` is obsolete" unable to get image 'well5a/kubernetes-mps-plugin:latest': error during connect: this error may indicate that the docker daemon is not running: Get "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.45/images/well5a/kubernetes-mps-plugin:latest/json": open //./pipe/docker_engine: The system cannot find the specified file
