@@ -6,7 +6,7 @@
 - [ ] All Pull requests are merged correctly in the dev branch
 - [ ] All acceptance criterias are fulfilled
 
-
+---
 # Definition of Done (Pull requests)
 
 - [ ] The feature has a documentation
@@ -15,3 +15,4 @@
 - [ ] At least one reviewer has to accept the pull request
 - [ ] All open threads are resolved
 
+---
