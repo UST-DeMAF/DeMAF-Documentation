@@ -2,6 +2,7 @@
 Documentations and artifacts of the EnPro University Stuttgart summer semester 2024.  
 Within this document you can find a general instruction on how the project is build and used.  
 For a guide to MPS testing see [this file](mps-testing/README.md).  
+For a guide on how to use the GitHub container registry (ghcr) and how to setup the GitHub Actions correctly see [this file](ghcr/README.md).
 
 ---
 # DeMAF Documentation
