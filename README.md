@@ -51,7 +51,10 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
         -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
 
     - `plugins`: List all (available) registered plugins
-
+    - `purge`: you can purge all plugin queues, which removes open or pending transformations.
+    - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
+    - `help`: Shows all available commands for the Demaf-Shell
+      
 ---
 ## Help Section
 If you encounter problems during installation and initial use, the following points may help you:
