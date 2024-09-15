@@ -45,15 +45,25 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
         - `location` (short: `l`): location of the deployment model
           - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
           - `commands` (short: `c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
+          - `options` (short: `o`):  the optionsargument is currently used for the visualisation service.
+            - Flags which can be provided in the options argument:
+              - visualize=true/false
+              - height=pixel
+              - width=pixel
+              - flatten=true/false/partial (TODO: Erklärung)
+              - dpi=dots per inch
+            - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+
       - **Example**:
         -  Clone the Example Deployment Model:  
           `git clone https://github.com/Well5a/kube`
-        -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
+        -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` --options dpi=96, flatten=true, width=1920, height=1080, visualize=true inside the DeMAF-shell
 
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations.
     - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
     - `help`: Shows all available commands for the Demaf-Shell
+
       
 ---
 ## Help Section
