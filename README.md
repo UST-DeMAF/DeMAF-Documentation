@@ -52,7 +52,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
               - height=pixel
               - width=pixel
               - flatten=true/false/partial (TODO: Erklärung)
-              - dpi=dots per inch
+              - dpi=dots per inch of your monitor (default 96 dpi)
             - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations.
@@ -66,6 +66,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     * Run inside the DeMAF-Shell: transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --commands "" --options visualize=false
     * Expected Result:
       ![Expected_Reuslt_ExampleI](resources/images/result_ex1.png)
+    * The result file can be found in the project folder `/deployment-config/volume/tadms`
     
  * **Example II**:
      * This example shows how to use the visualization service during the transformation.
