@@ -74,8 +74,8 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
      * Expected Result TODO
  
 * **Example III**:
-        -  Clone the Example Deployment Model: `git clone https://github.com/Well5a/kube`
-        -  Run: `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
+    * Clone the Example Deployment Model: `git clone https://github.com/Well5a/kube`
+    * Run: `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
       
 ---
 ## Help Section
