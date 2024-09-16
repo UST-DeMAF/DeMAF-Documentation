@@ -1,4 +1,4 @@
-# EnPro-Documentation
+![image](https://github.com/user-attachments/assets/31694106-0cdd-4841-bf82-818baa6960c4)# EnPro-Documentation
 Documentations and artifacts of the EnPro University Stuttgart summer semester 2024.  
 Within this document you can find a general instruction on how the project is build and used.  
 For a guide to MPS testing see [this file](mps-testing/README.md).  
@@ -63,14 +63,15 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     * We build example deployments for various deployment technologies in the [opentelemetry-demo repository](https://github.com/UST-DeMAF/opentelemetry-demo/tree/demaf).
     * For this example we will use the kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
     * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
-    * Run inside the DeMAF-Shell: transform --location file:"/usr/share/opentelemetry-demo.yaml" --technology kubernetes --commands ""
-    * ![Expected_Reuslt_ExampleI](resources/images/result_ex1.png)
+    * Run inside the DeMAF-Shell: transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --commands "" --options visualize=false
+    * Expected Result:
+      ![Expected_Reuslt_ExampleI](resources/images/result_ex1.png)
     
  * **Example II**:
      * This example shows how to use the visualization service during the transformation.
      * For this example we will use the terraform tf-file. Download the TODO! [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
      * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
-     * Run inside the DeMAF-Shell: transform --location file:"/usr/share/opentelemetry-demo.yaml" --technology kubernetes --commands "" --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+     * Run inside the DeMAF-Shell: transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --commands "" --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
      * Expected Result TODO
  
 * **Example III**:
