@@ -15,6 +15,7 @@ Most of the repositories are *“Plugin”* repositories which represent functio
 DeMAF is organized in a microservice architecture. To run the tool you need to run every microservice as well as the databases. For easy use, we recommend deployment on your local machine with `docker-compose` and the [deployment-config repository](https://github.com/UST-DeMAF/deployment-config/tree/main) which starts all necessary services and all available plugins.
 
 ---
+
 # Getting Started:
 1. To deploy the DeMAF Tool with `docker-compose`, it is required to install Docker and Docker Compose (https://docs.docker.com/compose/install/). Install depending on your OS Docker Desktop, as describe on the website.
 
@@ -40,7 +41,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
       ![DeMAF_Shell](resources/images/DeMAF_Shell.jpg)
  
 7.	Inside the DeMAF-shell you can run the following commands:
-    - `transform`: transforms a deployment model into a EDMM Model
+    - `transform`: transforms a deployment model into an EDMM Model
       - **args**: 
         - `location` (short: `l`): location of the deployment model
           - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
@@ -63,8 +64,16 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     * For this example we will use the kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
     * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
     * Run inside the DeMAF-Shell: transform --location file:"/usr/share/opentelemetry-demo.yaml" --technology kubernetes --commands ""
-      
-* **Example II**:
+    * ![Expected_Reuslt_ExampleI](resources/images/result_ex1.png)
+    
+ * **Example II**:
+     * This example shows how to use the visualization service during the transformation.
+     * For this example we will use the terraform tf-file. Download the TODO! [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
+     * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
+     * Run inside the DeMAF-Shell: transform --location file:"/usr/share/opentelemetry-demo.yaml" --technology kubernetes --commands "" --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+     * Expected Result TODO
+ 
+* **Example III**:
         -  Clone the Example Deployment Model: `git clone https://github.com/Well5a/kube`
         -  Run: `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
       
