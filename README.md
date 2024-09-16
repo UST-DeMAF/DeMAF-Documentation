@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/31694106-0cdd-4841-bf82-818baa6960c4)# EnPro-Documentation
+# EnPro-Documentation
 Documentations and artifacts of the EnPro University Stuttgart summer semester 2024.  
 Within this document you can find a general instruction on how the project is build and used.  
 For a guide to MPS testing see [this file](mps-testing/README.md).  
