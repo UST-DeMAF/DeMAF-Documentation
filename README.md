@@ -12,7 +12,7 @@ Most of the repositories are *“Plugin”* repositories which represent functio
 
 ![DeMAF_Overview](resources/images/DeMAF_Overview_2.png)
 
-DeMAF is organized in a microservice architecture. To run the tool you need to run every microservice as well as the databases. For easy use, we recommend deployment on your local machine with `docker-compose`. 
+DeMAF is organized in a microservice architecture. To run the tool you need to run every microservice as well as the databases. For easy use, we recommend deployment on your local machine with `docker-compose` and the [deployment-config repository](https://github.com/UST-DeMAF/deployment-config/tree/main) which starts all necessary services and all available plugins.
 
 ---
 # Getting Started:
@@ -21,7 +21,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 2. Clone the Deployment Config Tool (https://github.com/UST-DeMAF/deployment-config.git) 
     -	`git clone https://github.com/UST-DeMAF/deployment-config.git`
 
-3. Start the Docker Desktop Application
+3. Make sure, the Docker Desktop Application is running.
 
 4. Go to the `volume` folder of the `deployment-config` repository on your system and run `docker-compose pull && docker-compose up -d` on your system.
     - The console output looks like this:
@@ -53,17 +53,21 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
               - flatten=true/false/partial (TODO: Erklärung)
               - dpi=dots per inch
             - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
-
-      - **Example**:
-        -  Clone the Example Deployment Model:  
-          `git clone https://github.com/Well5a/kube`
-        -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` --options dpi=96, flatten=true, width=1920, height=1080, visualize=true inside the DeMAF-shell
-
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations.
     - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
     - `help`: Shows all available commands for the Demaf-Shell
-
+## Examples:
+* **Example I**:
+    * We build example deployments for various deployment technologies in the [opentelemetry-demo repository](https://github.com/UST-DeMAF/opentelemetry-demo/tree/demaf).
+    * For this example we will use the kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
+    * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
+    * transform --location file:"/usr/share/opentelemetry-demo.yaml" --technology kubernetes --commands ""
+      
+* **Example II**:
+        -  Clone the Example Deployment Model:  
+          `git clone https://github.com/Well5a/kube`
+        -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` --options dpi=96, flatten=true, width=1920, height=1080, visualize=true inside the DeMAF-shell
       
 ---
 ## Help Section
