@@ -44,16 +44,20 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     - `transform`: transforms a deployment model into an EDMM Model
       - **args**: 
         - `location` (short: `l`): location of the deployment model
-          - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
-          - `commands` (short: `c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
-          - `options` (short: `o`):  the optionsargument is currently used for the visualisation service.
+            -  The location argument is mandatory for the transformation process.
+        - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
+            -  The technology argument is mandatory for the transformation process.
+        - `commands` (short: `c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
+            - The commands argument is optional and not mandatory for the transformation process.
+        - `options` (short: `o`):  the optionsargument is currently used for the visualisation service.
             - Flags which can be provided in the options argument:
               - visualize=true/false
               - height=pixel
               - width=pixel
-              - flatten=true/false/partial (TODO: Erklärung)
+              - flatten=true/false/partial
               - dpi=dots per inch of your monitor (default 96 dpi)
             - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+            - The options argument is optional and not mandatory for the transformation process. If you do not specify any options, the default value is ‘visualise = false’.
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations.
     - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
@@ -70,11 +74,18 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     
  * **Example II**:
      * This example shows how to use the visualization service during the transformation.
-     * For this example we will use the terraform tf-file. Download the TODO! [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
+     * For this example we will use the kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml).
      * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
-     * Run inside the DeMAF-Shell: transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --commands "" --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
-     * Expected Result TODO
- 
+     * Run inside the DeMAF-Shell: transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+     * ![DEMAF_VIS](resources/images/demaf_vis.png)
+     * Expected Results:
+        * Inside the CMD there will be a path provided:
+             * ![DEMAF_VIS](resources/images/demaf_vis.png)
+        * Copy this path in a browser and you will see Winery:
+             * ![DEMAF_VIS](resources/images/winery_open_editor.png)
+        * Click on Open Editor and the graph will be visible:
+            * ![DEMAF_VIS](resources/images/Winery_graph.png)
+
 * **Example III**:
     * Clone the Example Deployment Model: `git clone https://github.com/Well5a/kube`
     * Run: `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
