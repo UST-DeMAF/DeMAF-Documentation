@@ -51,15 +51,15 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
             - The commands argument is optional and not mandatory for the transformation process.
         - `options` (short: `o`):  the optionsargument is currently used for the visualisation service.
             - Flags which can be provided in the options argument:
-              - visualize=true/false
-              - height=pixel
-              - width=pixel
-              - flatten=true/false/partial
-              - dpi=dots per inch of your monitor (default 96 dpi)
+              - visualize=true/false (default: false)
+              - height=pixel (default: 1080 pixels)
+              - width=pixel (default: 1920 pixels)
+              - flatten=true/false/partial (default: false)
+              - dpi=dots per inch of your monitor (default: 96 dpi)
             - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
             - The options argument is optional and not mandatory for the transformation process. If you do not specify any options, the default value is ‘visualise = false’.
     - `plugins`: List all (available) registered plugins
-    - `purge`: you can purge all plugin queues, which removes open or pending transformations.
+    - `purge`: you can purge all plugin queues, which removes open or pending transformations (example: purge 1 (removes the first queue of the list), purge terraformSTATIC (purges the terraform Queue)).
     - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
     - `help`: Shows all available commands for the Demaf-Shell
 ## Examples:
