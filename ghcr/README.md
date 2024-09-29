@@ -151,3 +151,21 @@ With this we have a working pipeline to build and push a docker image. We can sp
 In the future, we would like to extend this guide to use cache image as a means to speed up the building of the docker image.
 
 An example can be seen with the visualization service's [workflow](https://github.com/UST-DeMAF/visualization-service/blob/main/.github/workflows/buildAndPushImage.yml) and [Dockerfile](https://github.com/UST-DeMAF/visualization-service/blob/main/Dockerfile) (which uses an Alpine Linux based docker image). Another example can be seen with the Ansible plugin's [workflow](https://github.com/UST-DeMAF/ansible-mps-plugin/blob/main/.github/workflows/buildAndPushImage.yml) and [Dockerfile](https://github.com/UST-DeMAF/ansible-mps-plugin/blob/main/Dockerfile) (this uses the example code from above).
+
+---
+## Using the ghcr
+To then use the built docker images from the ghcr we can simply use the following command:
+
+```bash
+docker pull ghcr.io/ust-demaf/[image name]:[tag]
+```
+
+So, for example, if we want to pull the Ansible plugin using the latest tag we can run:
+
+```bash
+docker pull ghcr.io/ust-demaf/ansible-mps-plugin:latest
+```
+
+This pulls the latest version (i.e. the version from the *main* branch) of the Ansible plugin with MPS pre-installed.
+
+To see a list of all available docker images from the UST-DeMAF organization visit the *[Packages](https://github.com/orgs/UST-DeMAF/packages)* tab from the organization's main page.
