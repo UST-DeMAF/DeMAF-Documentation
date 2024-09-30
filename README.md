@@ -52,7 +52,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations.
-    - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
+    - `listq`: Lists all available RabbitMQ queues (Queues of the plugins which can be purged) and the number of messages inside each queue
     - `help`: Shows all available commands for the Demaf-Shell
       
 ---
