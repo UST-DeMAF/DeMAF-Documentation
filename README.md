@@ -34,7 +34,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 5.	Clone the DeMAF-Shell to your system (as a independent repository):
     - `git clone https://github.com/UST-DeMAF/demaf-shell.git`
 
-6.	Open the `demaf-shell` folder and run the command: 
+6.	Open a CMD and navigate to the `demaf-shell` root folder and run the command: 
     - Windows: `mvnw spring-boot:run`
     - Mac and Linux: `./mvnw spring-boot:run`
 
