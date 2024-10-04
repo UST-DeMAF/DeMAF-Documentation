@@ -34,7 +34,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 5.	Clone the DeMAF-Shell to your system (as a independent repository):
     - `git clone https://github.com/UST-DeMAF/demaf-shell.git`
 
-6.	Open a CMD and navigate to the `demaf-shell` root folder and run the command: 
+6.	Open a terminal and navigate to the `demaf-shell` root folder and run the command: 
     - Windows: `mvnw spring-boot:run`
     - Mac and Linux: `./mvnw spring-boot:run`
 
@@ -44,31 +44,32 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 7.	Inside the DeMAF-shell you can run the following commands:
     - `transform`: transforms a deployment model into an EDMM Model
       - **arguments**: 
-        - `location` (short: `l`): location of the deployment model
+        - `--location` (short: `-l`): location of the deployment model
             -  The location argument is mandatory for the transformation process.
             -  It needs to point to the volume folder of your cloned deployment-config repository (E.g. file:/usr/share).
             -  After the location argument you need to specify that you search for a file. Use file: for this.
-        - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
+        - `--technology` (short: `-t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
             -  The technology argument is mandatory for the transformation process.
-        - `commands` (short: `c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
+        - `--commands` (short: `-c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
             - The commands argument is optional and not mandatory for the transformation process.
-        - `options` (short: `o`):  the optionsargument is currently used for the visualisation service.
+        - `--options` (short: `-o`):  the optionsargument is currently used for the visualisation service.
             - Flags which can be provided in the options argument:
-              - visualize=true/false (default: false)
-              - height=pixel (default: 1080 pixels)
-              - width=pixel (default: 1920 pixels)
-              - flatten=true/false/partial (default: false)
-              - dpi=dots per inch of your monitor (default: 96 dpi)
-            - Example: --options dpi=96,flatten=true,width=1920,height=1080,visualize=true
-            - The options argument is optional and not mandatory for the transformation process. 
+              - `visualize=true/false` (default: false)
+              - `height=pixel` (default: 1080 pixels)
+              - `width=pixel` (default: 1920 pixels)
+              - `flatten=true/false/partial` (default: false)
+              - `dpi=dots` per inch of your monitor (default: 96 dpi)
+            - Example: `--options dpi=96,flatten=true,width=1920,height=1080,visualize=true`
+            - The options argument is optional and not mandatory for the transformation process.
+            - Don't use spaces between multiple options flags.
     - `plugins`: List all (available) registered plugins
-    - `purge`: you can purge all plugin queues, which removes open or pending transformations (example: purge 1 (removes the first queue of the list), purge terraformSTATIC (purges the terraform Queue)).
+    - `purge`: you can purge all plugin queues, which removes open or pending transformations (example: `purge 1` (removes the first queue of the list), `purge terraformSTATIC` (purges the terraform Queue)).
     - `listq`: Lists all available RaabitMQ queues (Queues of the plugins which can be purged)
     - `help`: Shows all available commands for the Demaf-Shell
 ## Examples:
 * **Example I**:
-    * We built example deployments for various deployment technologies in the [opentelemetry-demo repository](https://github.com/UST-DeMAF/opentelemetry-demo/tree/demaf).
-    * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository..
+    * We built example deployments for various deployment technologies in the [opentelemetry-demo repository](https://github.com/UST-DeMAF/opentelemetry-demo/tree/main).
+    * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/main/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository..
     * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
     * Run inside the DeMAF-Shell: ```transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options visualize=false```
     * Expected Result:
@@ -77,9 +78,9 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     
  * **Example II**:
      * This example shows how to use the visualization service after the transformation process.
-     * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository.
+     * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/main/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository.
      * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
-     * Run inside the DeMAF-Shell: ```transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options dpi=96,flatten=true,width=1920,height=1080,visualize=true```
+     * Run inside the DeMAF-Shell: ```transform -l file:/usr/share/opentelemetry-demo.yaml -t kubernetes -o dpi=96,flatten=true,width=1920,height=1080,visualize=true```
      * ![](resources/images/demaf_vis.png)
      * Expected Results:
         * When using visualize=true the DeMAF Shell outputs a link to the Visualization in Winery:
