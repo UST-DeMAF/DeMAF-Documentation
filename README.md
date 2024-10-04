@@ -22,7 +22,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 2. Clone the Deployment Config Tool (https://github.com/UST-DeMAF/deployment-config.git) 
     -	`git clone https://github.com/UST-DeMAF/deployment-config.git`
 
-3. Make sure, the Docker Desktop Application is running.
+3. Make sure the Docker Desktop application is running (or dockerd if you are running docker without it).
 
 4. Go to the root directory of the `deployment-config` repository on your system and run `docker-compose pull && docker-compose up -d` on your system.
     - The console output looks like this:
