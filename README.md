@@ -59,7 +59,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
               - width=pixel (default: 1920 pixels)
               - flatten=true/false/partial (default: false)
               - dpi=dots per inch of your monitor (default: 96 dpi)
-            - Example: --options dpi=96, flatten=true, width=1920, height=1080, visualize=true
+            - Example: --options dpi=96,flatten=true,width=1920,height=1080,visualize=true
             - The options argument is optional and not mandatory for the transformation process. 
     - `plugins`: List all (available) registered plugins
     - `purge`: you can purge all plugin queues, which removes open or pending transformations (example: purge 1 (removes the first queue of the list), purge terraformSTATIC (purges the terraform Queue)).
@@ -79,7 +79,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
      * This example shows how to use the visualization service after the transformation process.
      * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/demaf/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository.
      * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
-     * Run inside the DeMAF-Shell: ```transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options dpi=96, flatten=true, width=1920, height=1080, visualize=true```
+     * Run inside the DeMAF-Shell: ```transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options dpi=96,flatten=true,width=1920,height=1080,visualize=true```
      * ![](resources/images/demaf_vis.png)
      * Expected Results:
         * When using visualize=true the DeMAF Shell outputs a link to the Visualization in Winery:
