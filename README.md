@@ -17,12 +17,12 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
 ---
 
 # Getting Started:
-1. To deploy the DeMAF Tool with `docker-compose`, it is required to install Docker and Docker Compose (https://docs.docker.com/compose/install/). Install depending on your OS Docker Desktop, as describe on the website.
+1. To deploy the DeMAF Tool with `docker-compose`, it is required to install both *Docker* and *Docker Compose* (https://docs.docker.com/compose/install/). Depending on your OS, install *Docker Desktop*, as describe on the website.
 
 2. Clone the Deployment Config Tool (https://github.com/UST-DeMAF/deployment-config.git) 
     -	`git clone https://github.com/UST-DeMAF/deployment-config.git`
 
-3. Make sure the Docker Desktop application is running (or dockerd if you are running docker without it).
+3. Make sure the Docker Desktop application is running (or `dockerd` if you are running docker without it).
 
 4. Go to the root directory of the `deployment-config` repository on your system and run `docker-compose pull && docker-compose up -d` on your system.
     - The console output looks like this:
@@ -31,7 +31,7 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
     - Inside the docker-application you also see, that the containers are running:
       ![Docker](resources/images/docker_container.jpg)
 
-5.	Clone the DeMAF-Shell to your system (as a independent repository):
+5.	Clone the DeMAF-Shell to your system (as a independent repository, i.e. outisde the `deployment-config` repository):
     - `git clone https://github.com/UST-DeMAF/demaf-shell.git`
 
 6.	Open a terminal and navigate to the `demaf-shell` root folder and run the command: 
@@ -54,11 +54,11 @@ DeMAF is organized in a microservice architecture. To run the tool you need to r
             - The commands argument is optional and not mandatory for the transformation process.
         - `--options` (short: `-o`):  the optionsargument is currently used for the visualisation service.
             - Flags which can be provided in the options argument:
-              - `visualize=true/false` (default: false)
-              - `height=pixel` (default: 1080 pixels)
-              - `width=pixel` (default: 1920 pixels)
-              - `flatten=true/false/partial` (default: false)
-              - `dpi=dots` per inch of your monitor (default: 96 dpi)
+              - `visualize=true/false` (default: `false`)
+              - `height=pixel` (default: `1080` (pixels))
+              - `width=pixel` (default: `1920` (pixels))
+              - `flatten=true/false/partial` (default: `false`)
+              - `dpi=dots` per inch of your monitor (default: `96` (dpi))
             - Example: `--options dpi=96,flatten=true,width=1920,height=1080,visualize=true`
             - The options argument is optional and not mandatory for the transformation process.
             - Don't use spaces between multiple options flags.
