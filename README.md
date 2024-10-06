@@ -12,48 +12,87 @@ Most of the repositories are *“Plugin”* repositories which represent functio
 
 ![DeMAF_Overview](resources/images/DeMAF_Overview_2.png)
 
-DeMAF is organized in a microservice architecture. To run the tool you need to run every microservice as well as the databases. For easy use, we recommend deployment on your local machine with `docker-compose`. 
+DeMAF is organized in a microservice architecture. To run the tool you need to run every microservice as well as the databases. For easy use, we recommend deployment on your local machine with `docker-compose` and the [deployment-config repository](https://github.com/UST-DeMAF/deployment-config/tree/main) which starts all necessary services and all available plugins.
 
 ---
+
 # Getting Started:
-1. To deploy the DeMAF Tool with `docker-compose`, it is required to install Docker and Docker Compose (https://docs.docker.com/compose/install/). Install depending on your OS Docker Desktop, as describe on the website.
+1. To deploy the DeMAF Tool with `docker-compose`, it is required to install both *Docker* and *Docker Compose* (https://docs.docker.com/compose/install/). Depending on your OS, install *Docker Desktop*, as describe on the website.
 
 2. Clone the Deployment Config Tool (https://github.com/UST-DeMAF/deployment-config.git) 
     -	`git clone https://github.com/UST-DeMAF/deployment-config.git`
 
-3. Start the Docker Desktop Application
+3. Make sure the Docker Desktop application is running (or `dockerd` if you are running docker without it).
 
-4. Go to the `volume` folder of the `deployment-config` repository on your system and run `docker-compose pull && docker-compose up -d` on your system.
+4. Go to the root directory of the `deployment-config` repository on your system and run `docker-compose pull && docker-compose up -d` on your system.
     - The console output looks like this:
       ![Command_Line_Docker_command](resources/images/docker_compose_pull_docker_compose_compose.jpg)
 
     - Inside the docker-application you also see, that the containers are running:
       ![Docker](resources/images/docker_container.jpg)
 
-5.	Clone the DeMAF-Shell to your system:
+5.	Clone the DeMAF-Shell to your system (as a independent repository, i.e. outisde the `deployment-config` repository):
     - `git clone https://github.com/UST-DeMAF/demaf-shell.git`
 
-6.	Open the `demaf-shell` folder and run the command: 
-    - `mvnw spring-boot:run`
+6.	Open a terminal and navigate to the `demaf-shell` root folder and run the command: 
+    - Windows: `mvnw spring-boot:run`
+    - Mac and Linux: `./mvnw spring-boot:run`
 
     - The DeMAF-shell boots up:
       ![DeMAF_Shell](resources/images/DeMAF_Shell.jpg)
  
 7.	Inside the DeMAF-shell you can run the following commands:
-    - `transform`: transforms a deployment model into a EDMM Model
-      - **args**: 
-        - `location` (short: `l`): location of the deployment model
-          - `technology` (short: `t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
-          - `commands` (short: `c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
-      - **Example**:
-        -  Clone the Example Deployment Model:  
-          `git clone https://github.com/Well5a/kube`
-        -  Run `transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh` inside the DeMAF-shell
-
+    - `transform`: transforms a deployment model into an EDMM Model
+      - **arguments**: 
+        - `--location` (short: `-l`): location of the deployment model
+            -  The location argument is mandatory for the transformation process.
+            -  It needs to point to the volume folder of your cloned deployment-config repository (E.g. file:/usr/share).
+            -  After the location argument you need to specify that you search for a file. Use file: for this.
+        - `--technology` (short: `-t`): deployment technology used (depends on available plugins `[bash, terraform, ...]`)
+            -  The technology argument is mandatory for the transformation process.
+        - `--commands` (short: `-c`): specify how the deployment model is executed (e.g., for Terraform, you can pass parameters for the execution plan)
+            - The commands argument is optional and not mandatory for the transformation process.
+        - `--options` (short: `-o`):  the optionsargument is currently used for the visualisation service.
+            - Flags which can be provided in the options argument:
+              - `visualize=true/false` (default: `false`)
+              - `height=pixel` (default: `1080` (pixels))
+              - `width=pixel` (default: `1920` (pixels))
+              - `flatten=true/false/partial` (default: `false`)
+              - `dpi=dots` per inch of your monitor (default: `96` (dpi))
+            - Example: `--options dpi=96,flatten=true,width=1920,height=1080,visualize=true`
+            - The options argument is optional and not mandatory for the transformation process.
+            - Don't use spaces between multiple options flags.
     - `plugins`: List all (available) registered plugins
-    - `purge`: you can purge all plugin queues, which removes open or pending transformations.
+    - `purge`: you can purge all plugin queues, which removes open or pending transformations (example: `purge 1` (removes the first queue of the list), `purge terraformSTATIC` (purges the terraform Queue)).
     - `listq`: Lists all available RabbitMQ queues (Queues of the plugins which can be purged) and the number of messages inside each queue
     - `help`: Shows all available commands for the Demaf-Shell
+## Examples:
+* **Example I**:
+    * We built example deployments for various deployment technologies in the [opentelemetry-demo repository](https://github.com/UST-DeMAF/opentelemetry-demo/tree/main).
+    * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/main/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository..
+    * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
+    * Run inside the DeMAF-Shell: ```transform --location file:/usr/share/opentelemetry-demo.yaml --technology kubernetes --options visualize=false```
+    * Expected Result:
+      ![](resources/images/result_ex1.png)
+    * The result file can be found in the project folder `/deployment-config/volume/tadms`
+    
+ * **Example II**:
+     * This example shows how to use the visualization service after the transformation process.
+     * For this example we will use the Kubernetes yaml-file. Download the [yaml-file](https://github.com/UST-DeMAF/opentelemetry-demo/blob/main/kubernetes/opentelemetry-demo.yaml) and store it in the volume folder of your deployment-config repository.
+     * Start the DeMAF Application as well as the DeMAF Shell, explained in Step 1-6.
+     * Run inside the DeMAF-Shell: ```transform -l file:/usr/share/opentelemetry-demo.yaml -t kubernetes -o dpi=96,flatten=true,width=1920,height=1080,visualize=true```
+     * ![](resources/images/demaf_vis.png)
+     * Expected Results:
+        * When using visualize=true the DeMAF Shell outputs a link to the Visualization in Winery:
+             * ![](resources/images/demaf_vis.png)
+        * Copy this link in a browser (or click on it if the hosting shell supports it) and you will see Winery:
+             * ![](resources/images/winery_open_editor.png)
+        * Click on _Open Editor_ and the graph will be visible:
+            * ![](resources/images/Winery_graph.png)
+
+* **Example III**:
+    * Clone the Example Deployment Model: `git clone https://github.com/Well5a/kube`
+    * Run: ```transform --location file:/usr/share/kube/azure-start.sh --technology bash --commands ./azure-start.sh``` inside the DeMAF-shell
       
 ---
 ## Help Section
@@ -66,3 +105,17 @@ If you encounter problems during installation and initial use, the following poi
   - **Make sure the Docker-Application is running**
 
 
+---
+## Further Reads and Links
+If you want to dig deeper into the different technology plugins you find more detailed information in the respective README files:
+* [Ansible MPS Plugin](https://github.com/UST-DeMAF/ansible-mps-plugin)
+* [Terraform MPS Plugin](https://github.com/UST-DeMAF/terraform-mps-plugin)
+* [Kubernetes MPS Plugin](https://github.com/UST-DeMAF/kubernetes-mps-plugin)
+* [(Helm Plugin)](https://github.com/UST-DeMAF/helm-plugin)
+* [(Bash Plugin)](https://github.com/UST-DeMAF/bash-plugin)
+
+If you want to read more on the visualization service, you find it here:
+* [Visualization Service](https://github.com/UST-DeMAF/visualization-service)
+
+If you want to take a closer look on the opentelemetry-shop demo application, you find it here:
+* [Opentelemetry Demo](https://github.com/UST-DeMAF/opentelemetry-demo)
