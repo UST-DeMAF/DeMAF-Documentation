@@ -105,3 +105,17 @@ If you encounter problems during installation and initial use, the following poi
   - **Make sure the Docker-Application is running**
 
 
+---
+## Further Reads and Links
+If you want to dig deeper into the different technology plugins you find more detailed information in the respective README files:
+* [Ansible MPS Plugin](https://github.com/UST-DeMAF/ansible-mps-plugin)
+* [Terraform MPS Plugin](https://github.com/UST-DeMAF/terraform-mps-plugin)
+* [Kubernetes MPS Plugin](https://github.com/UST-DeMAF/kubernetes-mps-plugin)
+* [(Helm Plugin)](https://github.com/UST-DeMAF/helm-plugin)
+* [(Bash Plugin)](https://github.com/UST-DeMAF/bash-plugin)
+
+If you want to read more on the visualization service, you find it here:
+* [Visualization Service](https://github.com/UST-DeMAF/visualization-service)
+
+If you want to take a closer look on the opentelemetry-shop demo application, you find it here:
+* [Opentelemetry Demo](https://github.com/UST-DeMAF/opentelemetry-demo)
