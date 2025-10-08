@@ -1,4 +1,4 @@
-# Feature Branching Model:
+# Feature Branching Model
 
 1. There are **two** permanent branches per repository *`main`* and *`dev`*.
 
@@ -13,4 +13,3 @@
 6. Pull requests **must** be checked by at least one developer and pass the pipeline.
 
 7. Occasionally, if a small hotfix is required, one may also push directly to the *`dev`* branch.
-

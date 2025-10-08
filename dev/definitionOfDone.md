@@ -1,4 +1,6 @@
-# Definition of Done (User Stories)
+# Definition of Done
+
+## User Storie
 
 - [ ] The feature has a documentation
 - [ ] Unit tests for new features are available and working (if possible)
@@ -7,7 +9,8 @@
 - [ ] All acceptance criterias are fulfilled
 
 ---
-# Definition of Done (Pull requests)
+
+## Pull requests
 
 - [ ] The feature has a documentation
 - [ ] Unit tests for new features are available and working (if possible)

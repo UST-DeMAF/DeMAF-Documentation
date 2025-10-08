@@ -1,4 +1,4 @@
-# MPS Generator testing:
+# MPS Generator testing
 
 This is a small guide for testing the MPS model translation with generator tests, more details can be found on [this link](https://www.jetbrains.com/help/mps/testing-languages.html#testscreation).
 
@@ -35,6 +35,7 @@ This is a small guide for testing the MPS model translation with generator tests
 ![DeMAF_Overview](./pictures/8.png)
 
 ---
+
 ## Creating tests
 
 To create tests you need to create specific input and output models:
@@ -52,5 +53,3 @@ To create tests you need to create specific input and output models:
 ![DeMAF_Overview](./pictures/create_model3.png)
 
 4. Now you can run the test by using **right-click**.
-
-
