@@ -1,11 +1,14 @@
 # The GitHub Container registry (ghcr)
+
+## General Information
+
 The following is an excerpt from [Working with the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
 
-## [About the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#about-the-container-registry)
+### [About the Container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#about-the-container-registry)
 
 > The Container registry stores container images within your organization or personal account, and allows you to associate an image with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository. You can also access public container images anonymously.
 
-## [Labelling container images](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)
+### [Labelling container images](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)
 
 The container images may be labelled using the following:
 
@@ -15,14 +18,16 @@ The container images may be labelled using the following:
 > | `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package. |
 > | `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/). |
 
-## [Troubleshooting](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#troubleshooting)
+### [Troubleshooting](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#troubleshooting)
 
 > - The Container registry has a 10 GB size limit for each layer.
 > - The Container registry has a 10 minute timeout limit for uploads.
 
 ---
-# Using the ghcr to push a docker container
-## The CI workflow
+
+## Using the ghcr to push a docker container
+
+### The CI workflow
 
 First, we need to setup a GitHub Action (i.e. a *workflow*) in which our docker image will be build and finally pushed to the ghcr. For this, we need to create a file in the `.github/workflows/` directory.
 A basic GitHub actions file might look something like this:
@@ -86,7 +91,8 @@ jobs:
 For our purposes we only have to change the `IMAGE_NAME` varibale to the corresponding plugin name. The tag *latest* will be used for any commits on the *main* branch while *testing* will be used for the *dev* branch.
 
 ---
-## The Dockerfile 
+
+### The Dockerfile
 
 Lastly, we need a *Dockerfile* which is used to build the docker image. For this we use two build steps for the plugins as the *build* step uses a larger image than the *runtime* image.
 An example can be seen here:
@@ -153,7 +159,9 @@ In the future, we would like to extend this guide to use cache image as a means 
 An example can be seen with the visualization service's [workflow](https://github.com/UST-DeMAF/visualization-service/blob/main/.github/workflows/buildAndPushImage.yml) and [Dockerfile](https://github.com/UST-DeMAF/visualization-service/blob/main/Dockerfile) (which uses an Alpine Linux based docker image). Another example can be seen with the Ansible plugin's [workflow](https://github.com/UST-DeMAF/ansible-mps-plugin/blob/main/.github/workflows/buildAndPushImage.yml) and [Dockerfile](https://github.com/UST-DeMAF/ansible-mps-plugin/blob/main/Dockerfile) (this uses the example code from above).
 
 ---
-## Using the ghcr
+
+### Using the ghcr
+
 To then use the built docker images from the ghcr we can simply use the following command:
 
 ```bash
