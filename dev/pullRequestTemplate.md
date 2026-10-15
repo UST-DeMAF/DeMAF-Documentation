@@ -5,7 +5,7 @@
 Please check if the PR fulfills these requirements
 
 - [ ] Readme (How to Install, Run, Use and Configure) updated if applicable
-- [ ] The feature has a documentation
+- [ ] The feature has a documentation or the existing documentation is updated
 - [ ] Unit tests for new features are available and working (if possible)
 - [ ] All tests have to be successful
 - [ ] At least one reviewer has to accept the pull request

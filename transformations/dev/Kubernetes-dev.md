@@ -417,4 +417,9 @@ If the merged EDMM model contains another Kubernetes cluster besides `defaultKub
 
 ## Embedded Deployment Models
 
-- **Docker** (reference embedding): Container images referenced by containers are analyzed by the Docker plugin (see [Container Image](#container-image)).
+The DeMAF currently supports the following embeddings of Kubernetes deployment models, which are described in detail in the [overview of embedded deployment models](../README.md#embedded-deployment-models):
+
+- [Bash → Kubernetes](../README.md#bash--kubernetes) (reference embedding)
+- [Helm → Kubernetes](../README.md#helm--kubernetes) (containment embedding)
+- [Kubernetes → Docker](../README.md#kubernetes--docker) (reference embedding)
+- [Terraform → Kubernetes](../README.md#terraform--kubernetes) (containment embedding)
