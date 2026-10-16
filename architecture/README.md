@@ -2,7 +2,7 @@
 
 The following figure overviews the architecture of the DeMAF:
 
-![Architecture Overview with CLI](resources/archCLI.svg)
+![Architecture Overview with CLI](/architecture/resources/architectureDiagrams-cli.svg)
 
 Each component is an independent self-contained microservice.
 The DeMAF follows a plugin-based approach: Each **plugin** is responsible for transforming a deployment model created with a specific deployment technology.
@@ -16,10 +16,6 @@ The DeMAF follows a plugin-based approach: Each **plugin** is responsible for tr
 - **Models Database**: MongoDB database for storing EDMM models.
 - [**Visualization Service**](<https://github.com/UST-DeMAF/visualization-service>): Processes the EDMM models and sends them to the external [**Winery**](<https://github.com/winery/winery>) tool, which can be accessed by the user for visualization of the EDMM models.
 
-As an alternative to the CLI Service, we now also provide the [**Web UI Service**](<https://github.com/UST-DeMAF/web-ui>) for starting the transformation process viewing the resulting EDMM models by embedding the Winery tool:
-
-![Architecture Overview with WebUI](resources/archWebUI.svg)
-
 Currently Supported Plugins:
 
 - [Ansible](<https://github.com/UST-DeMAF/ansible-mps-plugin>)
@@ -28,6 +24,11 @@ Currently Supported Plugins:
 - [Bash](<https://github.com/UST-DeMAF/bash-plugin>)
 - [Helm](<https://github.com/UST-DeMAF/helm-plugin>)
 - [Docker](<https://github.com/UST-DeMAF/docker-plugin>)
+- [AWS CDK](<https://github.com/UST-DeMAF/cdk-mps-plugin>)
+
+As an alternative to the CLI Service, we now also provide the [**Web UI Service**](<https://github.com/UST-DeMAF/web-ui>) for starting the transformation process and viewing the resulting EDMM models by embedding the Winery tool:
+
+![Architecture Overview with WebUI](/architecture/resources/architectureDiagrams-webUIWinery.svg)
 
 ## Further Reading
 
