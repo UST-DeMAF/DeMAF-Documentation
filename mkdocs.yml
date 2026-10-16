@@ -12,6 +12,14 @@ exclude_docs: |
   !/typeDefinitions/README.md
   !/typeDefinitions/diagrams/*.svg
 
+plugins:
+  - search
+  - panzoom:
+      full_screen: true
+      # images: true is ignored by the plugin (bug in 0.5.2), so images are included via selector
+      include_selectors:
+        - img
+
 hooks:
   - hooks/nav_titles.py
   - hooks/submodule_links.py
@@ -58,4 +66,8 @@ markdown_extensions:
         kwds:
           case: lower
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
