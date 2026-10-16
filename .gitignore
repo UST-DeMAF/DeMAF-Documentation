@@ -1,0 +1,6 @@
+*.drawio.*
+
+.DS_Store
+site/
+.venv/
+__pycache__/
