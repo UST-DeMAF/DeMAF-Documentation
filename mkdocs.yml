@@ -13,6 +13,7 @@ exclude_docs: |
   !/typeDefinitions/diagrams/*.svg
 
 hooks:
+  - hooks/nav_titles.py
   - hooks/submodule_links.py
 
 validation:

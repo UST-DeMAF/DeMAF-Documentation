@@ -1,4 +1,4 @@
-# MPS Generator testing
+# MPS Generator Testing
 
 This is a small guide for testing the MPS model translation with generator tests, more details can be found on [this link](https://www.jetbrains.com/help/mps/testing-languages.html#testscreation).
 

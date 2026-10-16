@@ -1,4 +1,4 @@
-# The GitHub Container registry (ghcr)
+# GitHub Container Registry (ghcr)
 
 ## General Information
 

@@ -1,4 +1,4 @@
-# Template for Pull Requests
+# Pull Request Template
 
 ## Preparations
 
