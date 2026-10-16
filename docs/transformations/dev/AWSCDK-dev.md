@@ -45,7 +45,8 @@ classDiagram
 
 The metamodel corresponds to the `AWSCDK` language of the MPS project.
 A `Construct` is an L2 or L3 construct of the CDK application, e.g., a `Function` or a `Bucket`.
-Its `CFResources` are the AWS CloudFormation resources it synthesizes to, e.g., an `AWS::Lambda::Function` and its `AWS::IAM::Role`.
+Its `stackName` property refers to the `Stack` the `Construct` belongs to.
+The `Constructs` `CFResources` are the AWS CloudFormation resources it synthesizes to, e.g., an `AWS::Lambda::Function` and its `AWS::IAM::Role`.
 A `ReferenceProperty` is a property that references another CloudFormation resource.
 
 ## Transformation Process
@@ -119,6 +120,9 @@ The supported types are assigned to the following categories:
 | `KubernetesCluster` | `AWS::EKS::*` |
 | `Platform` | `AWS::ElasticBeanstalk::Environment`, `AWS::AppRunner::Service`, `AWS::Amplify::*` |
 
+> [!NOTE]
+> The rule `AWS::Kinesis*` matches all resource types whose service name starts with `Kinesis`, i.e., `AWS::Kinesis::*`, `AWS::KinesisAnalytics::*`, `AWS::KinesisAnalyticsV2::*`, `AWS::KinesisFirehose::*`, and `AWS::KinesisVideo::*`. Thus, some resources that are no message brokers, e.g., Kinesis Data Analytics applications, are also mapped to `MessageBroker` components. This could be fixed by using `AWS::Kinesis::*`.
+
 The component gets a **component type** `<technology>-<category>` derived from the category type, e.g., `lambda-Compute`, `s3-Storage`, or `postgresql-DatabaseSystem`.
 The technology is determined as follows:
 
@@ -157,6 +161,7 @@ The type of the relation is determined in the following order:
 ### Step 3: Model Merger
 
 There is no model merger.
+The transformation result becomes the EDMM model of the transformation process.
 
 > [!NOTE]
 > The plugin replaces the EDMM model of the transformation process with the transformation result. Thus, components created by other deployment technologies in the same transformation process are not preserved.
