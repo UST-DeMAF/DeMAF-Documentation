@@ -15,7 +15,7 @@ We currently support the transformation of the following deployment technologies
 | Terraform | [Terraform](/transformations/Terraform.md) | [Terraform-DEV](/transformations/dev/Terraform-dev.md) |
 | AWS Cloud Development Kit (CDK) | [AWS CDK](/transformations/AWSCDK.md) | [AWSCDK-DEV](/transformations/dev/AWSCDK-dev.md) |
 
-For some deployment technologies, we provide a dev-version that documents unfinished features.
+For some deployment technologies, we provide a dev-version that reflects the current implementation state including where features are unfinished or need improvement.
 
 Each file describes the technology-specific metamodel of the deployment technology, the mappings and transformation rules from this technology-specific metamodel to the EDMM, and which and how embedded deployment models are detected.
 In addition, it gives details on how this transformation is carried out. The transformation of most deployment technologies is carried out in 4 general steps:

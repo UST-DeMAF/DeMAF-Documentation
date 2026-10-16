@@ -150,6 +150,9 @@ The type of the relation is determined in the following order:
 There is no model merger.
 The transformation result becomes the EDMM model of the transformation process.
 
+> [!NOTE]
+> The plugin replaces the EDMM model of the transformation process with the transformation result. Thus, components created by other deployment technologies in the same transformation process are not preserved.
+
 ### Step 4: Post M2M Transformation
 
 There is no post M2M transformation.
