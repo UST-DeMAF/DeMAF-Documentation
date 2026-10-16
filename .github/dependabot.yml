@@ -1,0 +1,7 @@
+version: 2
+updates:
+  # Keep the included type definitions repository up to date
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: weekly

@@ -7,6 +7,13 @@ edit_uri: edit/main/docs/
 
 exclude_docs: |
   *.drawio
+  # Publish only the documentation of the included type definitions repository
+  /typeDefinitions/*
+  !/typeDefinitions/README.md
+  !/typeDefinitions/diagrams/*.svg
+
+hooks:
+  - hooks/submodule_links.py
 
 validation:
   links:

@@ -1,0 +1,3 @@
+[submodule "docs/typeDefinitions"]
+	path = docs/typeDefinitions
+	url = https://github.com/UST-DeMAF/demaf-type-definitions.git
