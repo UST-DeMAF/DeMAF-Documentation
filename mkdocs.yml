@@ -1,0 +1,53 @@
+site_name: DeMAF Documentation
+site_description: Documentation of the Deployment Model Abstraction Framework (DeMAF)
+site_url: https://ust-demaf.github.io/DeMAF-Documentation/
+repo_url: https://github.com/UST-DeMAF/DeMAF-Documentation
+repo_name: UST-DeMAF/DeMAF-Documentation
+edit_uri: edit/main/docs/
+
+exclude_docs: |
+  *.drawio
+
+validation:
+  links:
+    absolute_links: warn
+    anchors: warn
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - assets/stylesheets/callouts.css
+
+extra_javascript:
+  - assets/javascripts/external-links.js
+
+markdown_extensions:
+  - admonition
+  - github-callouts
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.highlight
+  - pymdownx.superfences

@@ -7,13 +7,13 @@ We currently support the transformation of the following deployment technologies
 
 | Deployment Technology | Transformation Documentation | Dev Version |
 | --- | --- | --- |
-| Ansible | [Ansible](/transformations/Ansible.md) | [Ansible-DEV](/transformations/dev/Ansible-dev.md) |
-| Bash | [Bash](/transformations/Bash.md) | [Bash-DEV](/transformations/dev/Bash-dev.md) |
-| Docker | [Docker](/transformations/Docker.md) | - |
-| Helm | [Helm](/transformations/Helm.md) | [Helm-DEV](/transformations/dev/Helm-dev.md) |
-| Kubernetes | [Kubernetes](/transformations/Kubernetes.md) | [Kubernetes-DEV](/transformations/dev/Kubernetes-dev.md) |
-| Terraform | [Terraform](/transformations/Terraform.md) | [Terraform-DEV](/transformations/dev/Terraform-dev.md) |
-| AWS Cloud Development Kit (CDK) | [AWS CDK](/transformations/AWSCDK.md) | [AWSCDK-DEV](/transformations/dev/AWSCDK-dev.md) |
+| Ansible | [Ansible](Ansible.md) | [Ansible-DEV](dev/Ansible-dev.md) |
+| Bash | [Bash](Bash.md) | [Bash-DEV](dev/Bash-dev.md) |
+| Docker | [Docker](Docker.md) | - |
+| Helm | [Helm](Helm.md) | [Helm-DEV](dev/Helm-dev.md) |
+| Kubernetes | [Kubernetes](Kubernetes.md) | [Kubernetes-DEV](dev/Kubernetes-dev.md) |
+| Terraform | [Terraform](Terraform.md) | [Terraform-DEV](dev/Terraform-dev.md) |
+| AWS Cloud Development Kit (CDK) | [AWS CDK](AWSCDK.md) | [AWSCDK-DEV](dev/AWSCDK-dev.md) |
 
 For some deployment technologies, we provide a dev-version that documents unfinished features.
 

@@ -2,7 +2,7 @@
 
 The following figure overviews the architecture of the DeMAF:
 
-![Architecture Overview with CLI](/architecture/resources/architectureDiagrams-cli.svg)
+![Architecture Overview with CLI](resources/architectureDiagrams-cli.svg)
 
 Each component is an independent self-contained microservice.
 The DeMAF follows a plugin-based approach: Each **plugin** is responsible for transforming a deployment model created with a specific deployment technology.
@@ -28,7 +28,7 @@ Currently Supported Plugins:
 
 As an alternative to the CLI Service, we now also provide the [**Web UI Service**](<https://github.com/UST-DeMAF/web-ui>) for starting the transformation process and viewing the resulting EDMM models by embedding the Winery tool:
 
-![Architecture Overview with WebUI](/architecture/resources/architectureDiagrams-webUIWinery.svg)
+![Architecture Overview with WebUI](resources/architectureDiagrams-webUIWinery.svg)
 
 ## Further Reading
 
