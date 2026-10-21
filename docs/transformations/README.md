@@ -54,7 +54,7 @@ The following table shows the methods provided by the deployment technologies to
 | **AWS CDK** | | | [R, C](#aws-cdk--bash) | [R](#aws-cdk--docker) | [R](#aws-cdk--helm) | [C](#aws-cdk--kubernetes) | |
 | **Bash** | [R](#bash--ansible) | [R](#bash--aws-cdk) | [R](#bash--bash) | [R](#bash--docker) | **[R](#bash--helm)** | **[R](#bash--kubernetes)** | **[R](#bash--terraform)** |
 | **Docker** | | | [C](#docker--bash) | [R](#docker--docker) | | | |
-| **Helm** | | | | | [R](#helm--helm) | **[C](#helm--kubernetes)** | |
+| **Helm** | | | | | **[R](#helm--helm)** | **[C](#helm--kubernetes)** | |
 | **Kubernetes** | | | | **[R](#kubernetes--docker)** | | | |
 | **Terraform** | [R](#terraform--ansible) | | [R, C](#terraform--bash) | **[R](#terraform--docker)** | **[R](#terraform--helm)** | **[C](#terraform--kubernetes)** | [R](#terraform--terraform) |
 

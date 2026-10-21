@@ -207,7 +207,7 @@ Each service port becomes a required component property:
 - Value: `<service port>:<container port>`, where the container port is the container port of the deployment that matches the `targetPort` of the service port by number or name. If no `targetPort` is specified, the service port is used.
 
 Service ports are only mapped if the target port matches a container port of the deployment.
-Headless services (`clusterIP: None`) are ignored.
+For headless services (`clusterIP: None`), every service port is mapped as `<service port>:<service port>`, regardless of `targetPort` and the deployment's container ports.
 
 For example, the `postgres` service with `port: 5432` and `targetPort: 5432` results in the property `exposedPort: 5432:5432` of the `postgres` component.
 
