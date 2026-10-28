@@ -16,9 +16,7 @@ plugins:
   - search
   - panzoom:
       full_screen: true
-      # images: true is ignored by the plugin (bug in 0.5.2), so images are included via selector
-      include_selectors:
-        - img
+      images: true
 
 hooks:
   - hooks/nav_titles.py

@@ -27,3 +27,4 @@ mkdocs serve
 ```
 
 The site is then served at <http://127.0.0.1:8000> and reloads on every change. In later sessions, only `source .venv/bin/activate` and `mkdocs serve` are needed.
+Use `pip install --upgrade -r requirements.txt` to upgrade dependencies to new versions in the configured version range.
