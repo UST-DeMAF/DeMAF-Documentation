@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  repository_dispatch:
+    types: [type-definitions-updated]
 
 permissions:
   contents: read
@@ -24,6 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+      - run: git submodule update --remote docs/typeDefinitions
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
