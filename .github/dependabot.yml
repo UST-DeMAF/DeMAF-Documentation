@@ -5,3 +5,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+
+  # Keep the GitHub Actions used in the workflows up to date
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
